@@ -1,0 +1,15 @@
+public class 5_Leet_Valid_Parentheses {
+    public static boolean isValid(String s) {
+        while (true) {
+            if (s.contains("()")) {
+                s = s.replace("()", "");
+            } else if (s.contains("{}")) {
+                s = s.replace("{}", "");
+            } else if (s.contains("[]")) {
+                s = s.replace("[]", "");
+            } else {
+                 return s.isEmpty();
+            }
+        }
+    }
+}
