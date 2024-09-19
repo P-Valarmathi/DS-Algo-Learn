@@ -1,0 +1,37 @@
+class Solution {
+    public String[] findWords(String[] words) {
+         String first = "qwertyuiop";
+        String second = "asdfghjkl";
+        String third = "zxcvbnm";
+
+        List<String> list = new ArrayList<>();
+
+        for (String word : words) {
+            String lowerCaseWord = word.toLowerCase();
+            String local = "";
+
+            if (first.contains(Character.toString(lowerCaseWord.charAt(0)))) {
+                local = first;
+            } else if (second.contains(Character.toString(lowerCaseWord.charAt(0)))) {
+                local = second;
+            } else if (third.contains(Character.toString(lowerCaseWord.charAt(0)))) {
+                local = third;
+            }
+
+            boolean isValid = true;
+            
+            for (char c : lowerCaseWord.toCharArray()) {
+                if (!local.contains(Character.toString(c))) {
+                    isValid = false;
+                    break;
+                }
+            }
+
+            if (isValid) {
+                list.add(word);
+            }
+        }
+
+        return list.toArray(new String[list.size()]);
+    }
+}
