@@ -1,0 +1,21 @@
+class Solution {
+    public char findTheDifference(String s, String t) {
+    
+        char[] first = s.toCharArray();
+        char[] second = t.toCharArray();
+        
+        char temp = 0;
+        
+        int sum1 = 0, sum2 = 0;
+        for (char c : first) {
+            sum1 += c;
+        }
+        for (char c : second) {
+            sum2 += c;
+        }
+        
+        temp = (char) (sum2 - sum1);
+        
+        return temp;
+    }
+}
