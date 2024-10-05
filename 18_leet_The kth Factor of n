@@ -1,0 +1,27 @@
+//https://leetcode.com/problems/the-kth-factor-of-n/?envType=study-plan-v2&envId=amazon-spring-23-high-frequency
+
+class Solution {
+    public int kthFactor(int n, int k) {
+        int count = 1;
+        List<Integer> factors = new ArrayList<>();
+        for (int i = 1; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                factors.add(i);
+                if (i != n / i) {
+                    factors.add(n / i);
+                }
+            }
+        }
+        Collections.sort(factors);
+
+
+        if (factors != null && k <= factors.size() && k > 0) { 
+            int element = factors.get(k - 1);
+            return element;
+        } else {
+            return -1; 
+        } 
+
+    
+    }
+}
